@@ -1,0 +1,137 @@
+:root {
+  /* layout */
+  --mobile: 375px;
+  --desktop: 1440px;
+
+  /* colors */
+  --black: #090b1a;
+  --black-second: #1b1938;
+  --violet: #aa5cdb;
+  --violet-transparent: #aa5cdba1;
+  --white: #ffffff;
+  --gray: #ffffffbf;
+  --gray-second: #ffffff99;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 15px;
+}
+
+.container-page {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.card {
+  width: 320px;
+  background-color: var(--black-second);
+  text-align: center;
+  color: var(--white);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.card .card__head {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card .card__head::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: var(--violet-transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.card__head .card__img {
+  display: block;
+}
+
+.card .card__body {
+  padding: 20px 30px;
+}
+
+.card__body .card__title {
+  font-size: 25px;
+}
+
+.card__title .link {
+  color: var(--violet);
+  font-style: normal;
+}
+
+.card__body .card__desc {
+  color: var(--gray-second);
+}
+.card__body .card__counters {
+  margin-bottom: 20px;
+}
+.card__body .counter__title {
+  color: var(--gray);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.card__body .counter {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 1200px) {
+  .container-page {
+    height: 100vh;
+    padding: 0;
+  }
+  .card {
+    width: 70%;
+
+    text-align: left;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'body head';
+  }
+
+  .card .card__head {
+    grid-area: head;
+    width: 100%;
+  }
+  .card__head .card__img {
+    src: url('../img/image-header-desktop.jpg');
+  }
+
+  .card .card__body {
+    grid-area: body;
+    width: 90%;
+    margin: auto;
+  }
+
+  .card__body .card__title {
+    font-size: 30px;
+  }
+
+  .card__body .card__counters {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+    margin-bottom: 0;
+  }
+}
